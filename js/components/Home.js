@@ -32,6 +32,7 @@ class Home extends Component {
         <button onClick={e => actions.callEmiliano()}>
           Call Emiliano
         </button>
+        { this.props.children }
       </main>
     );
   }
