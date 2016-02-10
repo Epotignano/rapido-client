@@ -1,3 +1,11 @@
+import injectTapEventPlugin from 'react-tap-event-plugin';
+
+// Needed for onTouchTap
+// Can go away when react 1.0 release
+// Check this repo:
+// https://github.com/zilverline/react-tap-event-plugin
+injectTapEventPlugin();
+
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { createStore, combineReducers, applyMiddleware } from 'redux'
@@ -7,11 +15,7 @@ import { syncHistory, routeReducer } from 'react-router-redux'
 
 import reducers from './reducers'
 
-import 'materialize-css';
-import 'materialize-js';
-
-import { App, About } from "./containers/index";
-import { Home } from "./components/components.index";
+import { App, Home } from "./containers/index";
 
 const reducer = combineReducers(Object.assign({}, reducers, {
   routing: routeReducer
@@ -36,7 +40,7 @@ ReactDOM.render(
     </Router>
   </Provider>,
   document.getElementById('main')
-)
+);
 
 
 

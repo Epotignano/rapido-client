@@ -38,12 +38,6 @@ module.exports = {
     ]
   },
   resolve: {
-    extensions: ['', '.js', '.json', '.css'],
-    alias: {
-      'jQuery' : __dirname + '/node_modules/jquery/dist/jquery.min.js',
-      'materialize-css' : __dirname + '/node_modules/materialize-css/dist/css/materialize.min.css',
-      'materialize-js' : __dirname + '/node_modules/materialize-css/dist/js/materialize.min.js',
-
-    }
+    extensions: ['', '.js', '.json', '.css']
   }
 };
