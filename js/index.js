@@ -35,7 +35,6 @@ ReactDOM.render(
     <Router history={browserHistory}>
       <Route path="/" component={App}>
         <IndexRoute component={Home}/>
-        <Route path="foo" component={About}/>
       </Route>
     </Router>
   </Provider>,
