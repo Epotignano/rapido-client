@@ -1,3 +1,11 @@
-/**
- * Created by epotignano on 09/02/16.
- */
+import React from 'react';
+
+export default React.createClass({
+  render() {
+    return (
+      <div>
+        <h1>Hello About</h1>
+      </div>
+    );
+  }
+});

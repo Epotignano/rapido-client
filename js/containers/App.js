@@ -1,25 +1,29 @@
-import React from 'react';
-import {Provider} from 'react-redux';
-import configureStore from '../store/configureStore';
-import Home from '../components/Home';
-import {renderDevTools} from '../utils/devTools';
+import React from 'react'
+import { Link } from 'react-router'
+import { connect } from 'react-redux'
+import { routeActions } from 'react-router-redux'
 
-const store = configureStore();
-
-export default React.createClass({
-  render() {
-    return (
+function App({ push, children }) {
+  return (
+    <div>
+      <header>
+        Links:
+        {' '}
+        <Link to="/">Home</Link>
+        {' '}
+        <Link to="/foo">Foo</Link>
+        {' '}
+        <Link to="/bar">Bar</Link>
+      </header>
       <div>
-
-        {/* <Home /> is your app entry point */}
-        <Provider store={store}>
-          <Home/>
-        </Provider>
-
-        {/* only renders when running in DEV mode */
-          renderDevTools(store)
-        }
+        <button onClick={() => push('/foo')}>Go to /foo</button>
       </div>
-    );
-  }
-});
+      <div style={{ marginTop: '1.5em' }}>{children}</div>
+    </div>
+  )
+}
+
+export default connect(
+  null,
+  routeActions
+)(App)

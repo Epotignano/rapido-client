@@ -2,12 +2,16 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import { createStore, combineReducers, applyMiddleware } from 'redux'
 import { Provider } from 'react-redux'
-import { Router, Route, browserHistory } from 'react-router'
+import { Router, Route, browserHistory, IndexRoute } from 'react-router'
 import { syncHistory, routeReducer } from 'react-router-redux'
+
 import reducers from './reducers'
+
 import 'materialize-css';
 import 'materialize-js';
-import { App } from "./containers/index";
+
+import { App, About } from "./containers/index";
+import { Home } from "./components/components.index";
 
 const reducer = combineReducers(Object.assign({}, reducers, {
   routing: routeReducer
@@ -17,15 +21,17 @@ const reducer = combineReducers(Object.assign({}, reducers, {
 const reduxRouterMiddleware = syncHistory(browserHistory)
 const createStoreWithMiddleware = applyMiddleware(reduxRouterMiddleware)(createStore)
 
-const store = createStoreWithMiddleware(reducer)
+const store = createStoreWithMiddleware(reducer);
 
 // Required for replaying actions from devtools to work
-reduxRouterMiddleware.listenForReplays(store)
+reduxRouterMiddleware.listenForReplays(store);
 
 ReactDOM.render(
   <Provider store={store}>
     <Router history={browserHistory}>
       <Route path="/" component={App}>
+        <IndexRoute component={Home}/>
+        <Route path="foo" component={About}/>
       </Route>
     </Router>
   </Provider>,
