@@ -34,10 +34,15 @@ module.exports = {
         test: /\.css$/, loaders: ["style", "css"]
       },
       { test: /\.(ttf|otf|eot|svg|woff(2)?)(\?[a-z0-9]+)?$/,
-        loader: 'file-loader?name=fonts/[name].[ext]' }
+        loader: 'file-loader?name=fonts/[name].[ext]' },
+
+      { test: /\.(png|jpg)$/, loader: 'url-loader?limit=25000' }
     ]
   },
   resolve: {
-    extensions: ['', '.js', '.json', '.css']
+    extensions: ['', '.js', '.json', '.css'],
+    alias: {
+      'flexbox': require("./node_modules/flexboxgrid/dist/flexboxgrid.min.css")
+    }
   }
 };

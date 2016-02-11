@@ -12,10 +12,10 @@ import { createStore, combineReducers, applyMiddleware } from 'redux'
 import { Provider } from 'react-redux'
 import { Router, Route, browserHistory, IndexRoute } from 'react-router'
 import { syncHistory, routeReducer } from 'react-router-redux'
-
+import 'flexboxgrid';
 import reducers from './reducers'
 
-import { App, Home } from "./containers/index";
+import { App, Home, Login } from "./containers/index";
 
 const reducer = combineReducers(Object.assign({}, reducers, {
   routing: routeReducer
@@ -33,8 +33,8 @@ reduxRouterMiddleware.listenForReplays(store);
 ReactDOM.render(
   <Provider store={store}>
     <Router history={browserHistory}>
-      <Route path="/" component={App}>
-        <IndexRoute component={Home}/>
+      <Route path="/" component={Login}>
+        <IndexRoute component={Login}/>
       </Route>
     </Router>
   </Provider>,
