@@ -40,9 +40,6 @@ module.exports = {
     ]
   },
   resolve: {
-    extensions: ['', '.js', '.json', '.css'],
-    alias: {
-      'flexbox': require("./node_modules/flexboxgrid/dist/flexboxgrid.min.css")
-    }
+    extensions: ['', '.js', '.json', '.css']
   }
 };

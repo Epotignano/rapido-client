@@ -16,6 +16,8 @@ import 'flexboxgrid';
 import {reducer as formReducer} from 'redux-form';
 import reducers from './reducers'
 
+import {renderDevTools} from './utils/devTools';
+
 import { App, Home, Login } from "./containers/index";
 
 const appReducers = combineReducers(Object.assign({}, reducers, {
@@ -32,17 +34,12 @@ const store = createStoreWithMiddleware(appReducers);
 // Required for replaying actions from devtools to work
 reduxRouterMiddleware.listenForReplays(store);
 
-ReactDOM.render(
+ReactDOM.render(<div>
   <Provider store={store}>
     <Router history={browserHistory}>
       <Route path="/" component={Login}>
         <IndexRoute component={Login}/>
       </Route>
     </Router>
-  </Provider>,
-  document.getElementById('main')
-);
-
-
-
-
+  </Provider>
+</div>, document.getElementById('main'));
