@@ -4,13 +4,17 @@
 
 import React from 'react';
 import {reduxForm} from 'redux-form';
-
+import {Paper} from 'material-ui';
+import Colors from 'material-ui/lib/styles/colors';
 var styles = {
   container: {
-    "flexDirection" : "row"
+    backgroundColor: Colors.purple500
   },
-  column: {
-    flex:1
+
+  panel : {
+    backgroundColor: Colors.cyan500,
+    panelContainer:10
+
   }
 };
 
@@ -26,9 +30,13 @@ export class Login extends React.Component {
     const {fields: {username, password}, handleSubmit} = this.props;
 
     return(
-      <div className="row">
-        <div className="col-md-4">
-          <form className="col-md-12" onSubmit={this.handleSubmit}>
+      <div className="row around-xs" style={styles.container}>
+        <Paper className="col-md-6" zDepth={3}>
+          <div style={styles.panel} className="row">
+            <h1 className="text-center">LOGIN</h1>
+          </div>
+
+          <form className="box" onSubmit={this.handleSubmit}>
             <div className="row">
               <label className="col-md-12">First Name</label>
               <input className="col-md-12" type="text" placeholder="First Name" {...username}/>
@@ -39,10 +47,7 @@ export class Login extends React.Component {
             </div>
             <button type="submit">Submit</button>
           </form>
-        </div>
-        <div className="col-md-8">
-          <img className="col-md-12" src={require("../../images/Origami-crane.jpg")} alt="Origami crane"/>
-        </div>
+        </Paper>
       </div>
     )
   }
