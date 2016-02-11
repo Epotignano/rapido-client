@@ -13,19 +13,21 @@ import { Provider } from 'react-redux'
 import { Router, Route, browserHistory, IndexRoute } from 'react-router'
 import { syncHistory, routeReducer } from 'react-router-redux'
 import 'flexboxgrid';
+import {reducer as formReducer} from 'redux-form';
 import reducers from './reducers'
 
 import { App, Home, Login } from "./containers/index";
 
-const reducer = combineReducers(Object.assign({}, reducers, {
-  routing: routeReducer
-}))
+const appReducers = combineReducers(Object.assign({}, reducers, {
+  routing: routeReducer,
+  form: formReducer
+}));
 
 // Sync dispatched route actions to the history
 const reduxRouterMiddleware = syncHistory(browserHistory)
 const createStoreWithMiddleware = applyMiddleware(reduxRouterMiddleware)(createStore)
 
-const store = createStoreWithMiddleware(reducer);
+const store = createStoreWithMiddleware(appReducers);
 
 // Required for replaying actions from devtools to work
 reduxRouterMiddleware.listenForReplays(store);

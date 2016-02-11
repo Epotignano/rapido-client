@@ -22,6 +22,7 @@
     "react-tap-event-plugin": "^0.2.2",
     "redux": "^3.0.4",
     "redux-devtools": "^2.1.5",
+    "redux-form": "^4.1.9",
     "redux-thunk": "^1.0.0",
     "whatwg-fetch": "^0.11.0"
   },
