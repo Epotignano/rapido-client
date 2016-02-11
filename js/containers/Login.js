@@ -28,14 +28,14 @@ export class Login extends React.Component {
     return(
       <div className="row">
         <div className="col-md-4">
-          <form onSubmit={this.handleSubmit}>
-            <div>
-              <label>First Name</label>
-              <input type="text" placeholder="First Name" {...username}/>
+          <form className="col-md-12" onSubmit={this.handleSubmit}>
+            <div className="row">
+              <label className="col-md-12">First Name</label>
+              <input className="col-md-12" type="text" placeholder="First Name" {...username}/>
             </div>
-            <div>
-              <label>Last Name</label>
-              <input type="text" placeholder="Last Name" {...password}/>
+            <div className="row">
+              <label className="col-md-12">Last Name</label>
+              <input className="col-md-12" type="text" placeholder="Last Name" {...password}/>
             </div>
             <button type="submit">Submit</button>
           </form>

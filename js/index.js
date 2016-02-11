@@ -34,7 +34,7 @@ const store = createStoreWithMiddleware(appReducers);
 // Required for replaying actions from devtools to work
 reduxRouterMiddleware.listenForReplays(store);
 
-ReactDOM.render(<div>
+ReactDOM.render(<div className="container-fluid">
   <Provider store={store}>
     <Router history={browserHistory}>
       <Route path="/" component={Login}>
